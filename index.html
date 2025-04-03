@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Bookstore</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Online Bookstore</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li>Fiction</li>
+            <li>Non-Fiction</li>
+            <li>Science</li>
+            <li>Technology</li>
+            <li>Children's Books</li>
+        </ul>
+    </nav>
+    
+    <section>
+        <p class="blink"><a href="registration.html" target="_blank">New Registration - Click Here!</a></p>
+    </section>
+    
+    <section id="countdown">
+        <h2>Library Annual Day Countdown</h2>
+        <p id="timer"></p>
+    </section>
+
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date("2025-12-15T00:00:00"); // Set your event date here
+            const now = new Date();
+            const timeDifference = eventDate - now;
+
+            if (timeDifference > 0) {
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                document.getElementById("timer").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                document.getElementById("timer").innerText = "The event has started!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
